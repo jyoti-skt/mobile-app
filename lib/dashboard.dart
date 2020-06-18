@@ -36,7 +36,7 @@ class _DashboardPageState extends State<DashboardPage> {
     ),
     Column(
     children: <Widget>[
-    Text("Play | Socialise | Earn",style: TextStyle(
+    Text("Play | Socialise | Earn ninnggg",style: TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
     fontFamily: 'Inter-Black-slnt'),),
