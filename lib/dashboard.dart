@@ -1,52 +1,26 @@
-
 import 'package:flutter/material.dart';
 
-class DashboardPage extends StatefulWidget {
+class dashboard extends StatefulWidget {
   @override
-  _DashboardPageState createState() => _DashboardPageState();
+  _dashboardState createState() => _dashboardState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _dashboardState extends State<dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-
-        body: Center(
-        child: Container(
-        color: Colors.white,
-        child: Padding(
-        padding: const EdgeInsets.all(30.0),
-    child: Column(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-    Padding(
-    padding: const EdgeInsets.fromLTRB(12,1, 12, 6),
-    child: Column(
-    crossAxisAlignment: CrossAxisAlignment.stretch,
-    mainAxisAlignment: MainAxisAlignment.start,
-    children: <Widget>[
-    Padding(
-    padding: const EdgeInsets.fromLTRB(5, 1, 12,6),
-    child: Image.asset("assets/logo.png",height: 40,width: 50),
-    ),
-    ],
-    ),
-    ),
-    Column(
-    children: <Widget>[
-    Text("Play | Socialise | Earn ninnggg",style: TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.bold,
-    fontFamily: 'Inter-Black-slnt'),),
-    ],
-    ),
-        ],
-    ),
+      body: Container(
+        height: MediaQuery.of(context).copyWith().size.height / 3,
+        child: ListTile(
+          leading: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.person,
+              color: Colors.grey,
+            ),
+          ),
         ),
-    ),
-    ),
+      ),
     );
   }
 }

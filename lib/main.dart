@@ -1,15 +1,11 @@
-import 'package:Sample/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dashboard.dart';
-import 'login.dart';
+
+import 'dash.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      home:  DashboardPage (),
-    )
-  );
-
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Dashboard(),
+  ));
 }
-
