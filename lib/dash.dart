@@ -144,7 +144,7 @@ class _dashState extends State<Dashboard> {
                     child: Text(
                       "1",
                       style:
-                      TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
