@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'dash.dart';
 
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Dashboard(),
-  ));
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Dashboard(),
+    ),
+  );
 }
