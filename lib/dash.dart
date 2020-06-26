@@ -45,7 +45,8 @@ class _dashState extends State<Dashboard> {
             Icon(
               Icons.notifications,
               color: Colors.black,
-            ), // icon-1
+            ),
+            // icon-1
             Icon(
               Icons.menu,
               color: Colors.black,
