@@ -1,4 +1,4 @@
-import 'package:Sample/pageroutetest.dart';
+import 'package:Sample/secondpage.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -47,24 +47,10 @@ class _dashState extends State<Dashboard> {
           ),
         ),
         title: Text('gogame'),
-        subtitle: Text('gaming app'),
+        subtitle: Text('gaming is fun'),
         trailing: Wrap(
           spacing: 12, // space between two icons
           children: <Widget>[
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        curve: Curves.linear,
-                        type: PageTransitionType.upToDown,
-                        child: SecondPage()));
-              },
-              icon: Icon(
-                Icons.notifications,
-                color: Colors.black,
-              ),
-            ),
             // icon-1
             IconButton(
               onPressed: () {
@@ -76,7 +62,7 @@ class _dashState extends State<Dashboard> {
                         child: SecondPage()));
               },
               icon: Icon(
-                Icons.person,
+                Icons.menu,
                 color: Colors.black,
               ),
             ), // icon-2
@@ -117,7 +103,7 @@ class _dashState extends State<Dashboard> {
                     child: Text(
                       "23K",
                       style:
-                      TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
@@ -371,11 +357,7 @@ class _dashState extends State<Dashboard> {
   }
 
   Widget _sixthcontaoiner() {
-    return Container(
-      width: 200,
-      height: 200,
-      color: Colors.blue,
-    );
+    return Container();
   }
 
   @override
