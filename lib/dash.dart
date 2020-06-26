@@ -1,7 +1,9 @@
+import 'package:Sample/pageroutetest.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'constants.dart';
 import 'staggeredContainer.dart';
@@ -31,7 +33,14 @@ class _dashState extends State<Dashboard> {
       height: MediaQuery.of(context).size.height * 0.1,
       child: ListTile(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context,
+                PageTransition(
+                    curve: Curves.linear,
+                    type: PageTransitionType.upToDown,
+                    child: SecondPage()));
+          },
           icon: Icon(
             Icons.person,
             color: Colors.black,
@@ -42,14 +51,34 @@ class _dashState extends State<Dashboard> {
         trailing: Wrap(
           spacing: 12, // space between two icons
           children: <Widget>[
-            Icon(
-              Icons.notifications,
-              color: Colors.black,
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        curve: Curves.linear,
+                        type: PageTransitionType.upToDown,
+                        child: SecondPage()));
+              },
+              icon: Icon(
+                Icons.notifications,
+                color: Colors.black,
+              ),
             ),
             // icon-1
-            Icon(
-              Icons.menu,
-              color: Colors.black,
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        curve: Curves.linear,
+                        type: PageTransitionType.upToDown,
+                        child: SecondPage()));
+              },
+              icon: Icon(
+                Icons.person,
+                color: Colors.black,
+              ),
             ), // icon-2
           ],
         ),
@@ -88,7 +117,7 @@ class _dashState extends State<Dashboard> {
                     child: Text(
                       "23K",
                       style:
-                          TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
@@ -129,7 +158,7 @@ class _dashState extends State<Dashboard> {
                     child: Text(
                       "1",
                       style:
-                          TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
@@ -170,7 +199,7 @@ class _dashState extends State<Dashboard> {
                     child: Text(
                       "2K",
                       style:
-                          TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(

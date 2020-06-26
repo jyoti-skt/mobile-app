@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
+import 'dash.dart';
+
 void main() {
   runApp(
     MaterialApp(
@@ -10,7 +12,7 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FirstPageRoute(),
+      home: Dashboard(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/second':
