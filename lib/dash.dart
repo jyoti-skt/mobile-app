@@ -341,7 +341,11 @@ class _dashState extends State<Dashboard> {
   }
 
   Widget _sixthcontaoiner() {
-    return Container();
+    return Container(
+      width: 200,
+      height: 200,
+      color: Colors.blue,
+    );
   }
 
   @override
