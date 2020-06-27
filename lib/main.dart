@@ -9,9 +9,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(),
       home: Dashboard(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
