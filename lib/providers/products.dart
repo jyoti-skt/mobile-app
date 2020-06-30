@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:statemanagment/Model/product.dart';
+
+import './product.dart';
 
 class Products with ChangeNotifier {
   List<Product> _items = [
@@ -36,9 +37,35 @@ class Products with ChangeNotifier {
           'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
     ),
   ];
+
+  //var showFavouritesOnly = false;
+
   List<Product> get items {
+//    if (showFavouritesOnly) {
+//      return _items.where((proditem) => proditem.isFavourite).toList();
+//    }
     return [..._items];
   }
+
+  List<Product> get favouriteitems {
+    return _items.where((proditem) => proditem.isFavourite).toList();
+  }
+
+  Product findviewById(String id) {
+    return _items.firstWhere(
+      (prod) => prod.id == id,
+    );
+  }
+
+//  void showFavouriteOnly() {
+//    showFavouritesOnly = true;
+//    notifyListeners();
+//  }
+//
+//  void showAll() {
+//    showFavouritesOnly = false;
+//    notifyListeners();
+//  }
 
   void addProduct() {
     notifyListeners();
