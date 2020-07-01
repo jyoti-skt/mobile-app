@@ -1,13 +1,23 @@
+import 'dart:convert';
+
 import 'package:Sample/person.dart';
 import 'package:Sample/secondpage.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'package:page_transition/page_transition.dart';
 
+import 'connection.dart';
 import 'constants.dart';
+import 'endpoint.dart';
 import 'staggeredContainer.dart';
+
+Future<http.Response> fetchAlbum() async {
+  return http.get('https://api.gogame.in/api/dashboard');
+}
 
 class Dashboard extends StatefulWidget {
   @override
@@ -15,6 +25,9 @@ class Dashboard extends StatefulWidget {
 }
 
 class _dashState extends State<Dashboard> {
+  bool _isLoading;
+  dynamic _data;
+
   var _imagelist = [
     'https://images.unsplash.com/photo-1591250656058-f524c6281874?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMDk0fQ&auto=format&fit=crop&w=634&q=80',
     'https://images.unsplash.com/photo-1591253523189-21f2b7872664?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
@@ -28,6 +41,48 @@ class _dashState extends State<Dashboard> {
     StaggeredTile.extent(1, 200),
     StaggeredTile.extent(1, 200),
   ];
+
+  @override
+  void initState() {
+    _connectServer();
+    super.initState();
+  }
+
+  Future<void> _connectServer() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    Connection connection = Connection();
+    Response response = await connection.postRequest(
+        body: '', endpoint: EndpointDashboard.kDashboard);
+
+    switch (response.statusCode) {
+      case 101:
+        setState(() {
+          //_networkCode = NetworkCode.noInternet;
+        });
+        break;
+      case 200:
+        _data = jsonDecode(response.body);
+        if (_data['status'] == 1) {
+          setState(() {
+            _isLoading = false;
+          });
+        } else {
+          setState(() {
+            //_networkCode = NetworkCode.serverError;
+          });
+        }
+        break;
+      case 204:
+      default:
+        setState(() {
+          //_networkCode = NetworkCode.serverError;
+        });
+        break;
+    }
+  }
 
   Widget _firstcontainer() {
     return Container(
@@ -188,7 +243,7 @@ class _dashState extends State<Dashboard> {
                     child: Text(
                       "2K",
                       style:
-                          TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
@@ -464,4 +519,10 @@ class _dashState extends State<Dashboard> {
       ),
     );
   }
+}
+
+@override
+Widget build(BuildContext context) {
+  // TODO: implement build
+  throw UnimplementedError();
 }
