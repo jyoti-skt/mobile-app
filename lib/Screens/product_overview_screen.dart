@@ -104,9 +104,9 @@ class _ProductOverviewScrenState extends State<ProductOverviewScren> {
           ),
         ],
       ),
-      drawer: AppDrawer(),
-      body: ProductGrid(_showOnlyFavourites),
-    );
+//      drawer: AppDrawer(),
+//      body: ProductGrid(_showOnlyFavourites),
+//    );
   }
 }
 
